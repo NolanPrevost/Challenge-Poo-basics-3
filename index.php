@@ -42,4 +42,8 @@ var_dump($a13);
 var_dump($route);
 var_dump($chemin);
 
+$homerCar = new Car('yellow', 2, 'SP98');
+$homerCar->setParkBreak(false);
+echo $homerCar->start();
+
 

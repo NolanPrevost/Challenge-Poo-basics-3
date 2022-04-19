@@ -13,10 +13,27 @@ class Car extends Vehicle
 
   private int $energyLevel;
 
+  private bool $hasParkBreak;
+
   public function __construct(string $color, int $nbSeats, string $energy)
   {
     parent::__construct($color, $nbSeats);
     $this->setEnergy($energy);
+  }
+
+  public function start(): string
+  {
+    if ($this->hasParkBreak) {
+      throw new Exception("D'oh !");
+    }    
+    try {
+      $this->getParkBreak();
+    } catch (Exception $e) {
+      $this->setParkBreak(false);
+    }
+    finally {
+      echo "Ma voiture roule comme un donut";
+    }
   }
 
   public function getEnergy(): string
@@ -39,5 +56,25 @@ class Car extends Vehicle
   public function setEnergyLevel(int $energyLevel): void
   {
     $this->energyLevel = $energyLevel;
+  }
+
+  /**
+   * Get the value of hasParkBreak
+   */ 
+  public function getParkBreak()
+  {
+    return $this->hasParkBreak;
+  }
+
+  /**
+   * Set the value of hasParkBreak
+   *
+   * @return  self
+   */ 
+  public function setParkBreak($hasParkBreak)
+  {
+    $this->hasParkBreak = $hasParkBreak;
+
+    return $this;
   }
 }
