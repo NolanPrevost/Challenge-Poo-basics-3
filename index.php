@@ -43,7 +43,14 @@ var_dump($route);
 var_dump($chemin);
 
 $homerCar = new Car('yellow', 2, 'SP98');
-$homerCar->setParkBreak(false);
-echo $homerCar->start();
+$homerCar->setParkBreak(true);
+try {
+  echo $homerCar->start();
+} catch (Exception $e) {
+  $this->setParkBreak(false);
+}
+finally {
+  echo "Ma voiture roule comme un donut";
+}
 
 

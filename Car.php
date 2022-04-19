@@ -26,14 +26,7 @@ class Car extends Vehicle
     if ($this->hasParkBreak) {
       throw new Exception("D'oh !");
     }    
-    try {
-      $this->getParkBreak();
-    } catch (Exception $e) {
-      $this->setParkBreak(false);
-    }
-    finally {
-      echo "Ma voiture roule comme un donut";
-    }
+    return "C'est parti let's goooo";
   }
 
   public function getEnergy(): string
