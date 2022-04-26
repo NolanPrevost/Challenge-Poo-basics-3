@@ -47,7 +47,7 @@ $homerCar->setParkBreak(true);
 try {
   echo $homerCar->start();
 } catch (Exception $e) {
-  $this->setParkBreak(false);
+  $homerCar->setParkBreak(false);
 }
 finally {
   echo "Ma voiture roule comme un donut";
